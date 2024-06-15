@@ -1,4 +1,5 @@
 import axios from 'axios'
+const BASE_URL = '/api/bug'
 
 export const bugService = {
     query,
@@ -9,18 +10,19 @@ export const bugService = {
 
 
 function query() {
-    return axios.get('http://127.0.0.1:3030/api/bug')
+    return axios.get(BASE_URL).then(res => res.data)
 }
 function getById(bugId) {
-    return storageService.get(STORAGE_KEY, bugId)
+    return axios.get(BASE_URL + `/${bugId}`).then(res => res.data)
 }
 function remove(bugId) {
-    return storageService.remove(STORAGE_KEY, bugId)
+    return axios.get(BASE_URL + `/${bugId}/remove`).then(res => res.data)
 }
 function save(bug) {
+    const { _id, description, severity, createdAt, title } = bug
     if (bug._id) {
-        return storageService.put(STORAGE_KEY, bug)
+        return axios.get(BASE_URL + `/${bugId}/save?_id=${id}&description=${description}&severity=${severity}&createdAt=${createdAt}&title=${title}`).then(res => res.data)
     } else {
-        return storageService.post(STORAGE_KEY, bug)
+        return axios.get(BASE_URL + `/${bugId}/save?description=${description}&severity=${severity}&createdAt=${createdAt}&title=${title}`).then(res => res.data)
     }
 }

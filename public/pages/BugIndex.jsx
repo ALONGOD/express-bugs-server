@@ -49,7 +49,8 @@ export function BugIndex() {
 
   function onEditBug(bug) {
     const severity = +prompt('New severity?')
-    const bugToSave = { ...bug, severity }
+    const description = prompt('New description?')
+    const bugToSave = { ...bug, severity, description }
     bugService
       .save(bugToSave)
       .then((savedBug) => {
@@ -64,6 +65,8 @@ export function BugIndex() {
         showErrorMsg('Cannot update bug')
       })
   }
+
+  if (!bugs || bugs.length) return <h1>No bugs today!! </h1>
 
   return (
     <main>
