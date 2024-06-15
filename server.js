@@ -33,6 +33,13 @@ app.get('/api/bug/save', (req, res) => {
 app.get('/api/bug/:id', (req, res) => {
     const { id } = req.params
 
+    var visitedBugs = req.cookies.visitedBugs || []
+
+    if (visitedBugs.length >= 3) res.status(401).send('BUG LIMIT REACHED')
+    if (!visitedBugs.includes(id)) visitedBugs.push(id)
+
+    res.cookie('visitedBugs', visitedBugs, { maxAge: 7000 })
+
     bugService.getById(id)
         .then(bug => res.send(bug))
 })
@@ -44,14 +51,14 @@ app.get('/api/bug/:id/remove', (req, res) => {
         .then(() => res.send(`Bug ${id} deleted...`))
 })
 
-app.get('/puki', (req, res) => {
-    var visitCount = req.cookies.visitCount || 0
-    // res.cookie('visitCount', ++visitCount)
-    res.cookie('visitCount', ++visitCount, { maxAge: 3000 })
-    res.send(`<h1>Hello Puki ${visitCount}</h1>`)
-})
+// app.get('/puki', (req, res) => {
+//     var visitCount = req.cookies.visitCount || 0
+// res.cookie('visitCount', ++visitCount)
+//     res.cookie('visitCount', ++visitCount, { maxAge: 3000 })
+//     res.send(`<h1>Hello Puki ${visitCount}</h1>`)
+// })
 
-app.get('/nono', (req, res) => res.redirect('/puki'))
+// app.get('/nono', (req, res) => res.redirect('/puki'))
 
 const port = 3030
 app.listen(port, () => loggerService.info(`Server listening on port http://127.0.0.1:${port}/`))

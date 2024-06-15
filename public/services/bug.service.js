@@ -13,7 +13,9 @@ function query() {
     return axios.get(BASE_URL).then(res => res.data)
 }
 function getById(bugId) {
-    return axios.get(BASE_URL + `/${bugId}`).then(res => res.data)
+    return axios.get(BASE_URL + `/${bugId}`)
+        .then(res => res.data)
+        .catch(console.log)
 }
 function remove(bugId) {
     return axios.get(BASE_URL + `/${bugId}/remove`).then(res => res.data)
