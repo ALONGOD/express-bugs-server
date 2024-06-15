@@ -19,10 +19,10 @@ function remove(bugId) {
     return axios.get(BASE_URL + `/${bugId}/remove`).then(res => res.data)
 }
 function save(bug) {
-    const { _id, description, severity, createdAt, title } = bug
-    if (bug._id) {
-        return axios.get(BASE_URL + `/${bugId}/save?_id=${id}&description=${description}&severity=${severity}&createdAt=${createdAt}&title=${title}`).then(res => res.data)
+    const { description, severity, createdAt, title } = bug
+    if (!bug._id) {
+        return axios.get(BASE_URL + `/${bug._id}/save?_id=${id}&description=${description}&severity=${severity}&createdAt=${createdAt}&title=${title}`).then(res => res.data)
     } else {
-        return axios.get(BASE_URL + `/${bugId}/save?description=${description}&severity=${severity}&createdAt=${createdAt}&title=${title}`).then(res => res.data)
+        return axios.get(BASE_URL + `/save?description=${description}&severity=${severity}&createdAt=${createdAt}&title=${title}`).then(res => res.data)
     }
 }

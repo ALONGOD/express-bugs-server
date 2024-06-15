@@ -33,6 +33,8 @@ export function BugIndex() {
     const bug = {
       title: prompt('Bug title?'),
       severity: +prompt('Bug severity?'),
+      description: prompt('New description?')
+
     }
     bugService
       .save(bug)
@@ -67,6 +69,7 @@ export function BugIndex() {
   }
 
   if (!bugs || bugs.length) return <h1>No bugs today!! </h1>
+  if (!bugs || bugs.length) return <button onClick={onAddBug}>Add Bug ⛐</button>
 
   return (
     <main>
