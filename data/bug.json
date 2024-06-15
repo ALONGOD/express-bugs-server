@@ -2,15 +2,36 @@
   {
     "_id": "9i0mL",
     "title": "button",
-    "descreption": "problem when clicking button",
+    "description": "problem when clicking button",
     "createdAt": "",
     "severity": 2
   },
   {
     "_id": "9i1mL",
     "title": "Error while watching",
-    "descreption": "problem when clicking play",
+    "description": "problem when clicking play",
     "createdAt": "",
     "severity": 4
+  },
+  {
+    "_id": "FJvWL",
+    "description": "bug1",
+    "severity": 2,
+    "createdAt": 1718428032587,
+    "title": "bugggg"
+  },
+  {
+    "_id": "bugg",
+    "description": "bug1",
+    "severity": 5,
+    "createdAt": null,
+    "title": "bugggg"
+  },
+  {
+    "_id": "1V70u",
+    "description": "bug1",
+    "severity": 2,
+    "createdAt": 1718428350457,
+    "title": "bugggg"
   }
 ]

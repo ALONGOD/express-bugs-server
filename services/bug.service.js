@@ -7,6 +7,7 @@ export const bugService = {
     save
 }
 
+
 var bugs = utilService.readJsonFile('./data/bug.json')
 
 function query() {
@@ -27,9 +28,11 @@ function remove(bugId) {
 
 function save(bugToSave) {
     if (bugToSave._id) {
+        if (bugToSave.createdAt === null) bugToSave.createdAt = Date.now()
         const idx = bugs.findIndex(bug => bug._id === bugToSave._id)
         bugs.splice(idx, 1, bugToSave)
     } else {
+        bugToSave.createdAt = Date.now()
         bugToSave._id = utilService.makeId()
         bugs.push(bugToSave)
     }

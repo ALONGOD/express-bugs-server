@@ -2,14 +2,14 @@
   {
     "_id": "9i0mL",
     "title": "button",
-    "descreption": "problem when clicking button",
+    "description": "problem when clicking button",
     "createdAt": "",
     "severity": 2
   },
   {
     "_id": "9i1mL",
     "title": "Error while watching",
-    "descreption": "problem when clicking play",
+    "description": "problem when clicking play",
     "createdAt": "",
     "severity": 4
   }
