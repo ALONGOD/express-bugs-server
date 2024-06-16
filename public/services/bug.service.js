@@ -26,7 +26,7 @@ function remove(bugId) {
 function save(bug) {
     const { description, severity, createdAt, title } = bug
     if (bug._id !== undefined) {
-        return axios.get(BASE_URL + `/save?_id=${bug._id}&description=${description}&severity=${severity}&title=${title}`).then(res => res.data)
+        return axios.get(BASE_URL + `/save?_id=${bug._id}&createdAt=${createdAt}&description=${description}&severity=${severity}&title=${title}`).then(res => res.data)
     } else {
         return axios.get(BASE_URL + `/save?description=${description}&severity=${severity}&title=${title}`).then(res => res.data)
     }

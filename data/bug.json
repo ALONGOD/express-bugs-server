@@ -1,16 +1,20 @@
 [
   {
     "_id": "9i0mL",
-    "description": "asss",
+    "description": "buttttton",
     "severity": 5,
-    "createdAt": null,
+    "createdAt": 1542107359454,
     "title": "button"
   },
   {
     "_id": "9i1mL",
     "title": "Error while watching",
     "description": "problem when clicking play",
-    "createdAt": "",
-    "severity": 4
+    "createdAt": 1542107359454,
+    "severity": 4,
+    "labels": [
+      "critical",
+      "need CR"
+    ]
   }
 ]

@@ -3,14 +3,22 @@
     "_id": "9i0mL",
     "title": "button",
     "description": "problem when clicking button",
-    "createdAt": "",
-    "severity": 2
+    "createdAt": 1542107359454,
+    "severity": 2,
+    "labels": [
+      "critical",
+      "need CR"
+    ]
   },
   {
     "_id": "9i1mL",
     "title": "Error while watching",
     "description": "problem when clicking play",
-    "createdAt": "",
-    "severity": 4
+    "createdAt": 1542107359454,
+    "severity": 4,
+    "labels": [
+      "critical",
+      "need CR"
+    ]
   }
 ]
