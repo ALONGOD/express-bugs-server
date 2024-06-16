@@ -12,5 +12,19 @@
     "description": "problem when clicking play",
     "createdAt": "",
     "severity": 4
+  },
+  {
+    "_id": "9i12L",
+    "title": "Error while watching",
+    "description": "problem when clicking play",
+    "createdAt": "",
+    "severity": 4
+  },
+  {
+    "_id": "9212L",
+    "title": "Error while watching",
+    "description": "problem when clicking play",
+    "createdAt": "",
+    "severity": 4
   }
 ]
