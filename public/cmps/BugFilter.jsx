@@ -1,6 +1,6 @@
 const { useState, useEffect } = React
 
-export function NoteFilter({ filterBy, onSetFilterBy }) {
+export function BugFilter({ filterBy, onSetFilterBy }) {
 
     const [filterByToEdit, setFilterByToEdit] = useState({ ...filterBy })
     useEffect(() => {

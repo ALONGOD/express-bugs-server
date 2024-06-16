@@ -10,7 +10,7 @@ export const bugService = {
 }
 
 
-function query() {
+function query(filterBy) {
     return axios.get(BASE_URL).then(res => res.data)
 }
 function getById(bugId) {
