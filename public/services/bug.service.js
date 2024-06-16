@@ -10,8 +10,10 @@ export const bugService = {
 }
 
 
+
 function query(filterBy) {
-    return axios.get(BASE_URL).then(res => res.data)
+    const { txt, minSeverity } = filterBy
+    return axios.get(`${BASE_URL}?minSeverity=${minSeverity}&txt=${txt}`).then(res => res.data)
 }
 function getById(bugId) {
     return axios.get(BASE_URL + `/${bugId}`)
@@ -23,10 +25,10 @@ function remove(bugId) {
 }
 function save(bug) {
     const { description, severity, createdAt, title } = bug
-    if (!bug._id) {
-        return axios.get(BASE_URL + `/${bug._id}/save?_id=${id}&description=${description}&severity=${severity}&createdAt=${createdAt}&title=${title}`).then(res => res.data)
+    if (bug._id) {
+        return axios.get(BASE_URL + `/${bug._id}/save?_id=${id}&description=${description}&severity=${severity}&title=${title}`).then(res => res.data)
     } else {
-        return axios.get(BASE_URL + `/save?description=${description}&severity=${severity}&createdAt=${createdAt}&title=${title}`).then(res => res.data)
+        return axios.get(BASE_URL + `/save?description=${description}&severity=${severity}&title=${title}`).then(res => res.data)
     }
 }
 

@@ -1,6 +1,7 @@
 const { useState, useEffect } = React
 
 export function BugFilter({ filterBy, onSetFilterBy }) {
+    const { txt, minSeverity } = filterBy
 
     const [filterByToEdit, setFilterByToEdit] = useState({ ...filterBy })
     useEffect(() => {
@@ -18,16 +19,10 @@ export function BugFilter({ filterBy, onSetFilterBy }) {
     // return <div>hii</div>
     return (
         <section className="note-filter flex flex-row">
-            <input onChange={handleChange} value={search} name="search" type="text" placeholder="Search..." />
+            <input onChange={handleChange} value={txt} name="txt" type="text" placeholder="Search..." />
             <img src="assets/img/search-icon.png" />
 
-            <select className="note-type-filter" name="type" value={type} onChange={handleChange}>
-                <option value="">All Types</option>
-                <option value="NoteTxt">Text</option>
-                <option value="NoteImg">Image</option>
-                <option value="NoteTodos">Todos</option>
-                <option value="NoteVideo">Video</option>
-            </select>
+            <input min="1" max="5" name="minSeverity" value={minSeverity} onChange={handleChange} type='range'></input>
 
         </section>
     )

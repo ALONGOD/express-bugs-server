@@ -15,8 +15,8 @@ export function BugIndex() {
   const [bugs, setBugs] = useState([])
 
   useEffect(() => {
-    loadBugs()
-  }, [])
+    loadBugs(filterBy)
+  }, [filterBy])
 
   function loadBugs() {
     bugService.query(filterBy).then(setBugs)
@@ -69,6 +69,7 @@ export function BugIndex() {
         ))
         showSuccessMsg('Bug updated')
       })
+
       .catch((err) => {
         console.log('Error from onEditBug ->', err)
         showErrorMsg('Cannot update bug')
