@@ -6,6 +6,7 @@ export const bugService = {
     getById,
     save,
     remove,
+    getEmptyFilter
 }
 
 
@@ -27,4 +28,8 @@ function save(bug) {
     } else {
         return axios.get(BASE_URL + `/save?description=${description}&severity=${severity}&createdAt=${createdAt}&title=${title}`).then(res => res.data)
     }
+}
+
+function getEmptyFilter() {
+    return { txt: '', minSeverity: 1 }
 }

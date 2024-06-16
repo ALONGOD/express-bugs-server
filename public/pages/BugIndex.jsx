@@ -1,10 +1,17 @@
 import { bugService } from '../services/bug.service.js'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 import { BugList } from '../cmps/BugList.jsx'
+// import { BugFilter } from '../cmps/BugFilter.jsx'
 
 const { useState, useEffect } = React
 
 export function BugIndex() {
+  // const [filterBy, setFilterBy] = useState(
+  //   bugService.getEmptyFilter()
+  // )
+  // function onSetFilterBy(newFilter) {
+  //   setFilterBy({ ...newFilter })
+  // }
   const [bugs, setBugs] = useState([])
 
   useEffect(() => {
@@ -69,7 +76,8 @@ export function BugIndex() {
   }
 
   if (!bugs || bugs.length) return <h1>No bugs today!! </h1>
-  if (!bugs || bugs.length) return <button onClick={onAddBug}>Add Bug ⛐</button>
+  // if (!bugs || bugs.length) return <button onClick={onAddBug}>Add Bug ⛐</button>   <BugFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
+
 
   return (
     <main>
