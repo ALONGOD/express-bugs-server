@@ -11,7 +11,6 @@ export function BugFilter({ filterBy, onSetFilterBy }) {
     function handleChange({ target }) {
         const { name, value } = target
         setFilterByToEdit(prevFilterBy => ({ ...prevFilterBy, [name]: value }))
-        console.log(filterByToEdit)
     }
 
     const { search, type } = filterBy;
@@ -20,9 +19,9 @@ export function BugFilter({ filterBy, onSetFilterBy }) {
     return (
         <section className="note-filter flex flex-row">
             <input onChange={handleChange} value={txt} name="txt" type="text" placeholder="Search..." />
-            <img src="assets/img/search-icon.png" />
 
             <input min="1" max="5" name="minSeverity" value={minSeverity} onChange={handleChange} type='range'></input>
+            <span>{minSeverity}</span>
 
         </section>
     )
