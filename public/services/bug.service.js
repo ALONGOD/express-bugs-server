@@ -11,9 +11,9 @@ export const bugService = {
 
 
 
-function query(filterBy) {
-    const { txt, minSeverity } = filterBy
-    return axios.get(`${BASE_URL}?minSeverity=${minSeverity}&txt=${txt}`).then(res => res.data)
+function query(filterBy = {}) {
+    return axios.get(BASE_URL, { params: filterBy })
+        .then(res => res.data)
 }
 function getById(bugId) {
     return axios.get(BASE_URL + `/${bugId}`)

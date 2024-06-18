@@ -8,6 +8,9 @@ const app = express()
 
 app.use(express.static('public'))
 app.use(cookieParser())
+app.use(express.json())
+
+
 
 // Express Routing:
 
