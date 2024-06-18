@@ -13,21 +13,24 @@ app.use(express.json())
 
 
 // Express Routing:
-
 app.get('/api/bug', (req, res) => {
-    const { txt, minSeverity = +minSeverity } = req.query
+    const { txt, minSeverity = 0, pageIdx = 0, sortBy = 'createdAt', sortDir = 'asc' } = req.query;
+
     const filterBy = {
-        txt: req.query.txt || '',
-        minSeverity: +req.query.minSeverity || 0,
-        pageIdx: +req.query.pageIdx || 0,
-    }
+        txt: txt || '',
+        minSeverity: +minSeverity,
+        pageIdx: +pageIdx,
+        sortBy: sortBy,
+        sortDir: sortDir
+    };
+
     bugService.query(filterBy)
         .then(bugs => res.send(bugs))
         .catch(err => {
-            loggerService.error(`Couldn't get bugs...`)
-            res.status(500).send(`Couldn't get bugs...`)
-        })
-})
+            loggerService.error(`Couldn't get bugs: ${err.message}`);
+            res.status(500).send(`Couldn't get bugs: ${err.message}`);
+        });
+});
 
 app.get('/api/bug/:id', (req, res) => {
     const { id } = req.params

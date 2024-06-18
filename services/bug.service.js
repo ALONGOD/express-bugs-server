@@ -11,17 +11,29 @@ const PAGE_SIZE = 2
 var bugs = utilService.readJsonFile('./data/bug.json')
 
 
-function query(filterBy = { txt: '', minSeverity: 1 }) {
-    const { txt, minSeverity } = filterBy
-    const regExp = new RegExp(txt, 'i')
-    var filteredBugs = bugs.filter(bug => (regExp.test(bug.title) || regExp.test(bug.description)) && bug.severity >= minSeverity)
+function query(filterBy = { txt: '', minSeverity: 1, sortBy: 'createdAt', sortDir: 'asc', pageIdx: 0 }) {
+    const { txt, minSeverity, sortBy, sortDir, pageIdx } = filterBy;
+    const regExp = new RegExp(txt, 'i');
 
-    const startIdx = filterBy.pageIdx * PAGE_SIZE
-    filteredBugs = filteredBugs.slice(startIdx, startIdx + PAGE_SIZE)
+    let filteredBugs = bugs.filter(bug => (regExp.test(bug.title) || regExp.test(bug.description)) && bug.severity >= minSeverity);
 
-    return Promise.resolve(filteredBugs)
+    // Sorting
+    filteredBugs.sort((bug1, bug2) => {
+        let comparison = 0;
+        if (bug1[sortBy] < bug2[sortBy]) {
+            comparison = -1;
+        } else if (bug1[sortBy] > bug2[sortBy]) {
+            comparison = 1;
+        }
+        return sortDir === 'asc' ? comparison : -comparison;
+    });
+
+    // Pagination
+    const startIdx = pageIdx * PAGE_SIZE;
+    filteredBugs = filteredBugs.slice(startIdx, startIdx + PAGE_SIZE);
+
+    return Promise.resolve(filteredBugs);
 }
-
 function getById(bugId) {
     const bug = bugs.find(bug => bug._id === bugId)
     return Promise.resolve(bug)

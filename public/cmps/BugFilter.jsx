@@ -1,7 +1,7 @@
 const { useState, useEffect } = React
 
 export function BugFilter({ filterBy, onSetFilterBy }) {
-    const { txt, minSeverity } = filterBy
+    const { txt, minSeverity, sortBy, sortDir } = filterBy;
 
     const [filterByToEdit, setFilterByToEdit] = useState({ ...filterBy })
     useEffect(() => {
@@ -20,6 +20,15 @@ export function BugFilter({ filterBy, onSetFilterBy }) {
     }
 
 
+    function toggleSortOrder() {
+        const newSortDir = sortDir === 'asc' ? 'desc' : 'asc';
+        setFilterByToEdit(prev => ({ ...prev, sortDir: newSortDir }));
+    }
+
+    function handleSortChange(event) {
+        const newSortBy = event.target.value;
+        setFilterByToEdit(prev => ({ ...prev, sortBy: newSortBy }));
+    }
     // return <div>hii</div>
 
 
@@ -33,6 +42,18 @@ export function BugFilter({ filterBy, onSetFilterBy }) {
             <button onClick={() => onGetPage(-1)}>-</button>
             <span>{filterByToEdit.pageIdx + 1}</span>
             <button onClick={() => onGetPage(1)}>+</button>
+
+            <div>
+                Sort by:
+                <select value={sortBy} onChange={handleSortChange}>
+                    <option value="createdAt">Created At</option>
+                    <option value="title">Title</option>
+                    <option value="severity">Severity</option>
+                </select>
+                <button onClick={toggleSortOrder}>
+                    {sortDir === 'asc' ? 'Ascending' : 'Descending'}
+                </button>
+            </div>
 
         </section>
     )
