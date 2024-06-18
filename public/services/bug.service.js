@@ -34,6 +34,11 @@ function save(bug) {
     }
 }
 
+
+
 function getEmptyFilter() {
-    return { txt: '', minSeverity: 1 }
+    return { txt: '', minSeverity: 1, pageIdx: 0 }
 }
+
+
+

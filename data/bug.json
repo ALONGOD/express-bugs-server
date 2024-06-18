@@ -1,10 +1,14 @@
 [
   {
     "_id": "9i0mL",
-    "description": "buttttton",
-    "severity": 5,
+    "title": "button",
+    "description": "problem when clicking button",
     "createdAt": 1542107359454,
-    "title": "button"
+    "severity": 2,
+    "labels": [
+      "critical",
+      "need CR"
+    ]
   },
   {
     "_id": "9i1mL",
