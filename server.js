@@ -24,19 +24,6 @@ app.get('/api/bug', (req, res) => {
         })
 })
 
-
-
-
-app.get('/api/bug/save', (req, res) => {
-    const { _id, description, severity, createdAt, title } = req.query
-    const bugToSave = { _id, description, severity: +severity, createdAt: +createdAt, title }
-
-    bugService.save(bugToSave)
-        .then(savedBug => res.send(savedBug))
-})
-
-
-
 app.get('/api/bug/:id', (req, res) => {
     const { id } = req.params
 
@@ -51,12 +38,35 @@ app.get('/api/bug/:id', (req, res) => {
         .then(bug => res.send(bug))
 })
 
-app.get('/api/bug/:id/remove', (req, res) => {
+
+app.delete('/api/bug/:id', (req, res) => {
     const { id } = req.params
 
     bugService.remove(id)
         .then(() => res.send(`Bug ${id} deleted...`))
 })
+
+
+
+
+app.put('/api/bug/:id', (req, res) => {
+    const { _id, description, severity, createdAt, title } = req.body
+    const bugToSave = { _id, description, severity: +severity, createdAt: +createdAt, title }
+
+    bugService.save(bugToSave)
+        .then(savedBug => res.send(savedBug))
+})
+app.post('/api/bug/', (req, res) => {
+    const { description, severity, createdAt, title } = req.body
+    const bugToSave = { description, severity: +severity, createdAt: +createdAt, title }
+
+    bugService.save(bugToSave)
+        .then(savedBug => res.send(savedBug))
+})
+
+
+
+
 
 
 const port = 3030
