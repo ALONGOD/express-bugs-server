@@ -35,25 +35,31 @@ export function BugIndex() {
         showErrorMsg('Cannot remove bug')
       })
   }
-
   function onAddBug() {
-    const bug = {
-      title: prompt('Bug title?'),
-      severity: +prompt('Bug severity?'),
-      description: prompt('New description?')
+    const title = prompt('Bug title?');
+    const severity = +prompt('Bug severity?');
+    const description = prompt('New description?');
+    const labelsString = prompt('New labels? (separate by commas)');
+    const labels = labelsString.split(',').map(label => label.trim());
 
-    }
+    const bug = {
+      title,
+      severity,
+      description,
+      labels
+    };
+
     bugService
       .save(bug)
       .then((savedBug) => {
-        console.log('Added Bug', savedBug)
-        setBugs(prevBugs => [...prevBugs, savedBug])
-        showSuccessMsg('Bug added')
+        console.log('Added Bug', savedBug);
+        setBugs(prevBugs => [...prevBugs, savedBug]);
+        showSuccessMsg('Bug added');
       })
       .catch((err) => {
-        console.log('Error from onAddBug ->', err)
-        showErrorMsg('Cannot add bug')
-      })
+        console.log('Error from onAddBug ->', err);
+        showErrorMsg('Cannot add bug');
+      });
   }
 
   function onEditBug(bug) {

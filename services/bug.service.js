@@ -7,7 +7,7 @@ export const bugService = {
     save
 }
 
-const PAGE_SIZE = 1
+const PAGE_SIZE = 2
 var bugs = utilService.readJsonFile('./data/bug.json')
 
 function query(filterBy = { txt: '', minSeverity: 1, pageIdx: 0 }) {

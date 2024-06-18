@@ -62,13 +62,13 @@ app.put('/api/bug/:id', (req, res) => {
         .then(savedBug => res.send(savedBug))
 })
 app.post('/api/bug/', (req, res) => {
+
     const { description, severity, createdAt, title } = req.body
     const bugToSave = { description, severity: +severity, createdAt: +createdAt, title }
 
     bugService.save(bugToSave)
         .then(savedBug => res.send(savedBug))
 })
-
 
 
 

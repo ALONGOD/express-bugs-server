@@ -5,12 +5,16 @@ export function BugPreview({ bug }) {
             <h1>🐛</h1>
             <p>Severity: <span>{bug.severity}</span></p>
             <p>Description: <span>{bug.description}</span></p>
-            <p>Labels:</p>
-            <ul>
-                {bug.labels.map((label, index) => (
-                    <li key={index}>{label}</li>
-                ))}
-            </ul>
+            {bug.labels && bug.labels.length > 0 && (
+                <div>
+                    <p>Labels:</p>
+                    <ul>
+                        {bug.labels.map((label, index) => (
+                            <li key={index}>{label}</li>
+                        ))}
+                    </ul>
+                </div>
+            )}
         </article>
     );
 }
