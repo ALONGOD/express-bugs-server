@@ -24,6 +24,9 @@ app.get('/api/bug', (req, res) => {
         sortDir: sortDir
     };
 
+
+
+
     bugService.query(filterBy)
         .then(bugs => res.send(bugs))
         .catch(err => {
