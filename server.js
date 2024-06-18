@@ -63,8 +63,8 @@ app.put('/api/bug/:id', (req, res) => {
 })
 app.post('/api/bug/', (req, res) => {
 
-    const { description, severity, createdAt, title } = req.body
-    const bugToSave = { description, severity: +severity, createdAt: +createdAt, title }
+    const { description, severity, createdAt, title, labels } = req.body
+    const bugToSave = { description, severity: +severity, createdAt: +createdAt, title, labels }
 
     bugService.save(bugToSave)
         .then(savedBug => res.send(savedBug))

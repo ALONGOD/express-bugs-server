@@ -22,16 +22,20 @@
   },
   {
     "description": "lol",
-    "severity": 2,
-    "createdAt": 1718699272751,
+    "severity": 5,
+    "createdAt": 1718700323533,
     "title": "ass",
-    "_id": "BxMzq"
+    "_id": "HKCTI"
   },
   {
-    "description": "lol a bug",
-    "severity": 5,
-    "createdAt": 1718699438718,
-    "title": "asssy",
-    "_id": "bPl2x"
+    "description": "lol",
+    "severity": 1,
+    "createdAt": 1718700482460,
+    "title": "ass",
+    "labels": [
+      "ass",
+      "lolooo"
+    ],
+    "_id": "2wzft"
   }
 ]
