@@ -8,7 +8,11 @@
     "labels": [
       "critical",
       "need CR"
-    ]
+    ],
+    "creator": {
+      "_id": "u101",
+      "fullname": "Puki Ja"
+    }
   },
   {
     "_id": "9i1mL",
@@ -18,17 +22,10 @@
     "severity": 4,
     "labels": [
       "need CR"
-    ]
-  },
-  {
-    "description": "lol",
-    "severity": 5,
-    "createdAt": 1718782544430,
-    "title": "ass",
-    "labels": [
-      "nana",
-      "banaa"
     ],
-    "_id": "EgUXz"
+    "creator": {
+      "_id": "u101",
+      "fullname": "Puki Ja"
+    }
   }
 ]

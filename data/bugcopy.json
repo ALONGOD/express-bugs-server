@@ -8,7 +8,11 @@
     "labels": [
       "critical",
       "need CR"
-    ]
+    ],
+    "creator": {
+      "_id": "u101",
+      "fullname": "Puki Ja"
+    }
   },
   {
     "_id": "9i1mL",
@@ -17,8 +21,11 @@
     "createdAt": 1542107359454,
     "severity": 4,
     "labels": [
-      "critical",
       "need CR"
-    ]
+    ],
+    "creator": {
+      "_id": "u101",
+      "fullname": "Puki Ja"
+    }
   }
 ]
