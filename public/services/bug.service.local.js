@@ -9,6 +9,7 @@ export const bugService = {
     getById,
     save,
     remove,
+    getEmptyFilter
 }
 
 
@@ -27,4 +28,9 @@ function save(bug) {
     } else {
         return storageService.post(STORAGE_KEY, bug)
     }
+}
+
+
+function getEmptyFilter() {
+    return { txt: '', minSeverity: 1, pageIdx: 0 }
 }
