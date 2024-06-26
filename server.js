@@ -1,5 +1,6 @@
 import express from 'express'
 import cookieParser from 'cookie-parser'
+import path from 'path'
 
 import { bugService } from './services/bug.service.js'
 import { userService } from './services/user.service.js'
@@ -11,6 +12,8 @@ const app = express()
 app.use(express.static('public'))
 app.use(cookieParser())
 app.use(express.json())
+
+
 
 
 // Express Routing:
@@ -121,6 +124,7 @@ app.post('/api/auth/login', (req, res) => {
 
 
 
+
 app.post('/api/auth/signup', (req, res) => {
     const credentials = req.body
     userService.save(credentials)
@@ -142,9 +146,9 @@ app.post('/api/auth/logout', (req, res) => {
     res.send('logged-out!')
 })
 
-// app.get('/**', (req, res) => {
-//     res.sendFile(path.resolve('public/index.html'))
-// })
+app.get('/**', (req, res) => {
+    res.sendFile(path.resolve('public/index.html'))
+})
 
 
 const PORT = process.env.PORT || 3030
