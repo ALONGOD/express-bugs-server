@@ -131,5 +131,8 @@ app.post('/api/auth/logout', (req, res) => {
 // })
 
 
-const port = 3030
-app.listen(port, () => loggerService.info(`Server listening on port http://127.0.0.1:${port}/`))
+const PORT = process.env.PORT || 3030
+
+app.listen(PORT, () =>
+    loggerService.info(`Server listening on port http://127.0.0.1:${PORT}/`)
+)
