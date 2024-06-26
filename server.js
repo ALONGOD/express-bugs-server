@@ -31,6 +31,8 @@ app.get('/api/bug', (req, res) => {
 
 
 
+
+
     bugService.query(filterBy)
         .then(bugs => res.send(bugs))
         .catch(err => {
@@ -112,6 +114,10 @@ app.post('/api/auth/login', (req, res) => {
             }
         })
 })
+
+
+
+
 
 
 

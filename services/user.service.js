@@ -29,17 +29,24 @@ function validateToken(token) {
 }
 
 function checkLogin({ username, password }) {
-    var user = users.find(user => user.username === username)
-    if (user) {
-        user = {
+    // Find the user by username
+    var user = users.find(user => user.username === username);
+
+    // If user exists and the password matches
+    if (user && user.password === password) {
+        // Create a new object with the required user details
+        const userDetails = {
             _id: user._id,
             fullname: user.fullname,
             isAdmin: user.isAdmin,
-        }
+        };
+        // Return the user details
+        return Promise.resolve(userDetails);
+    } else {
+        // Return null if authentication fails
+        return Promise.resolve(null);
     }
-    return Promise.resolve(user)
 }
-
 function query() {
     return Promise.resolve(users)
 }

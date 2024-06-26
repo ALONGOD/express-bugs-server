@@ -38,20 +38,5 @@
       "baba"
     ],
     "_id": "I23cB"
-  },
-  {
-    "description": "buttttt",
-    "severity": 5,
-    "createdAt": 1719414680248,
-    "title": "asss",
-    "labels": [
-      "1",
-      "2"
-    ],
-    "_id": "Zbwa6",
-    "creator": {
-      "_id": "1XKVEl",
-      "fullname": "puka Ja"
-    }
   }
 ]
