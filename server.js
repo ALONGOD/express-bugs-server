@@ -35,11 +35,6 @@ app.get('/api/bug', (req, res) => {
 
 
 
-
-
-
-
-
     bugService.query(filterBy)
         .then(bugs => res.send(bugs))
         .catch(err => {
@@ -71,6 +66,7 @@ app.delete('/api/bug/:id', (req, res) => {
     bugService.remove(id, loggedinUser)
         .then(() => res.send(`Bug ${id} deleted...`))
 })
+
 
 
 
@@ -115,6 +111,8 @@ app.get('/api/user', (req, res) => {
 
 
 
+
+
 app.get('/api/user/:userId', (req, res) => {
     const { userId } = req.params
     userService.getById(userId)
@@ -141,7 +139,14 @@ app.post('/api/auth/login', (req, res) => {
         })
 })
 
+app.delete('/api/user/:id', (req, res) => {
+    const loggedinUser = userService.validateToken(req.cookies.loginToken)
+    if (!loggedinUser) return res.status(401).send('Cannot remove bug')
+    const { id } = req.params
 
+    userService.remove(id)
+        .then(() => res.send(`User ${id} deleted...`))
+})
 
 
 

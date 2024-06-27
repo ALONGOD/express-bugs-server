@@ -10,9 +10,19 @@ export const userService = {
     logout,
     get,
     getLoggedinUser,
-    getEmptyCredentials
+    getEmptyCredentials,
+    query,
+    remove
 }
 
+function remove(userId) {
+    return axios.delete(BASE_URL + '/' + userId)
+        .then(res => res.data)
+}
+
+function query() {
+    return axios.get(BASE_URL).then(res => res.data)
+}
 
 function get(userId) {
     return axios.get(BASE_URL + userId).then(res => res.data)

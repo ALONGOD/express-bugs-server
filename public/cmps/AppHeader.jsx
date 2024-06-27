@@ -40,6 +40,7 @@ export function AppHeader() {
 
           <Link to={`/user/${user._id}`}>Hello {user.fullname}</Link>
           <button onClick={onLogout}>Logout</button>
+          {user.isAdmin && <Link to="/admin"><h2>Admin Section</h2></Link>}
         </ section >
       ) : (
         <section>
