@@ -16,6 +16,9 @@ app.use(express.json())
 
 
 
+
+
+
 // Express Routing:
 app.get('/api/bug', (req, res) => {
     const { txt, minSeverity = 0, pageIdx = 0, sortBy = 'createdAt', sortDir = 'asc' } = req.query;
@@ -93,16 +96,30 @@ app.post('/api/bug/', (req, res) => {
 })
 
 // AUTH API
-// app.get('/api/user', (req, res) => {
-//     userService.query()
-//         .then((users) => {
-//             res.send(users)
-//         })
-//         .catch((err) => {
-//             console.log('Cannot load users', err)
-//             res.status(400).send('Cannot load users')
-//         })
-// })
+app.get('/api/user', (req, res) => {
+    userService.query()
+        .then((users) => {
+            res.send(users)
+        })
+        .catch((err) => {
+            console.log('Cannot load users', err)
+            res.status(400).send('Cannot load users')
+        })
+})
+
+
+
+app.get('/api/user/:userId', (req, res) => {
+    const { userId } = req.params
+    userService.getById(userId)
+        .then((user) => {
+            res.send(user)
+        })
+        .catch((err) => {
+            console.log('Cannot load user', err)
+            res.status(400).send('Cannot load user')
+        })
+})
 
 app.post('/api/auth/login', (req, res) => {
     const credentials = req.body
