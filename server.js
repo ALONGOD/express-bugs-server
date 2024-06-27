@@ -140,9 +140,10 @@ app.post('/api/auth/login', (req, res) => {
 })
 
 app.delete('/api/user/:id', (req, res) => {
-    const loggedinUser = userService.validateToken(req.cookies.loginToken)
-    if (!loggedinUser) return res.status(401).send('Cannot remove bug')
+    // const loggedinUser = userService.validateToken(req.cookies.loginToken)
+    // if (!loggedinUser) return res.status(401).send('Cannot remove user')
     const { id } = req.params
+    console.log(id)
 
     userService.remove(id)
         .then(() => res.send(`User ${id} deleted...`))

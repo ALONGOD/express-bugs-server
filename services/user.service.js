@@ -3,7 +3,7 @@ import Cryptr from 'cryptr'
 import { utilService } from '../public/services/util.service.js'
 
 const cryptr = new Cryptr(process.env.SECRET1 || 'secret-puk-1234')
-const users = utilService.readJsonFile('data/user.json')
+var users = utilService.readJsonFile('data/user.json')
 
 export const userService = {
     query,
@@ -12,7 +12,8 @@ export const userService = {
     save,
     checkLogin,
     getLoginToken,
-    validateToken
+    validateToken,
+    remove
 }
 
 
@@ -57,7 +58,9 @@ function getById(userId) {
     return Promise.resolve(user)
 }
 
+
 function remove(userId) {
+    console.log(userId)
     users = users.filter(user => user._id !== userId)
     return _saveUsersToFile()
 }
