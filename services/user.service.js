@@ -66,7 +66,7 @@ function remove(userId) {
 
 function save(user) {
     user._id = utilService.makeId()
-    // TODO: severe security issue- attacker can post admins
+    user.isAdmin = false
     users.push(user)
     return _saveUsersToFile().then(() => user)
 
