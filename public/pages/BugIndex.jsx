@@ -92,7 +92,7 @@ export function BugIndex() {
       <BugFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
       <main>
         <button onClick={onAddBug}>Add Bug ⛐</button>
-        <BugList bugs={bugs} onRemoveBug={onRemoveBug} onEditBug={onEditBug} />
+        <BugList bugs={bugs} onRemoveBug={onRemoveBug} onEditBug={onEditBug} isUserDetailsPage={false} />
       </main>
     </main>
   )

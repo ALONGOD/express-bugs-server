@@ -19,6 +19,8 @@ app.use(express.json())
 
 
 
+
+
 // Express Routing:
 app.get('/api/bug', (req, res) => {
     const { txt, minSeverity = 0, pageIdx = 0, sortBy = 'createdAt', sortDir = 'asc' } = req.query;
@@ -30,7 +32,6 @@ app.get('/api/bug', (req, res) => {
         sortBy: sortBy,
         sortDir: sortDir
     };
-
 
 
 
@@ -106,6 +107,11 @@ app.get('/api/user', (req, res) => {
             res.status(400).send('Cannot load users')
         })
 })
+
+
+
+
+
 
 
 

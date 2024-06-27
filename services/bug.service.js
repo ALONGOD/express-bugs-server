@@ -7,7 +7,7 @@ export const bugService = {
     save
 }
 
-const PAGE_SIZE = 2
+const PAGE_SIZE = 5
 var bugs = utilService.readJsonFile('./data/bug.json')
 
 
