@@ -60,7 +60,6 @@ function getById(userId) {
 
 
 function remove(userId) {
-    console.log(userId)
     users = users.filter(user => user._id !== userId)
     return _saveUsersToFile()
 }

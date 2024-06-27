@@ -27,36 +27,5 @@
       "_id": "u101",
       "fullname": "Puki Ja"
     }
-  },
-  {
-    "description": "ass",
-    "severity": 1,
-    "createdAt": 1719416731604,
-    "title": "ass",
-    "labels": [
-      "ass",
-      "butt"
-    ],
-    "_id": "um6ZW",
-    "creator": {
-      "_id": "u101",
-      "fullname": "Puki Ja",
-      "isAdmin": true
-    }
-  },
-  {
-    "description": "nah",
-    "severity": 2,
-    "createdAt": 1719491753870,
-    "title": "lolll",
-    "labels": [
-      "titty",
-      "nipple"
-    ],
-    "_id": "tLG9M",
-    "creator": {
-      "_id": "1XKVEl",
-      "fullname": "puka goddard"
-    }
   }
 ]
