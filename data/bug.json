@@ -27,5 +27,19 @@
       "_id": "u101",
       "fullname": "Puki Ja"
     }
+  },
+  {
+    "description": "can't pause video",
+    "severity": 4,
+    "createdAt": 1719507858203,
+    "title": "lol",
+    "labels": [
+      "need CR"
+    ],
+    "_id": "Oojrx",
+    "creator": {
+      "_id": "1XKVEl",
+      "fullname": "puka goddard"
+    }
   }
 ]
